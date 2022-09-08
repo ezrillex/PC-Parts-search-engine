@@ -1,19 +1,11 @@
 <script>
-    import searchStore from "../searchStore"
-    import homeStore from "../homeStore";
-    import resultStore from "../resultStore";
+    import {push } from "svelte-spa-router"
     
+  export let busqueda = "";
+
     async function doSearch() {
-
-        let result = await fetch("http://localhost:8000/search?q=" + $searchStore);
-        result = await result.json();
-
-        $homeStore = false
-
-        $resultStore = []
-        $resultStore = $resultStore.concat(result)
-        
-        //console.log(JSON.stringify( $resultStore))
+        push("/" + busqueda);
+        return;
     }
 
     function doSearchEnter(args) {
@@ -25,10 +17,10 @@
   
   
     <div class="text-center ">
-      <h1 class="display-1">META PC</h1>
-      <div class=" d-flex">
-        <input type="text" class="fs-1 me-3 " on:keypress="{doSearchEnter}" bind:value={$searchStore} />
-        <button class="p-3 " on:click="{doSearch}"
+      <a href="#/" class="display-1">sivar.computer</a>
+      <div class="input-group input-group-lg d-flex mt-4">
+        <input type="text" class="fs-1 form-control border-black" on:keypress="{doSearchEnter}" bind:value={busqueda} />
+        <button class="p-3 btn border-black " on:click="{doSearch}"
           >
           <svg
             version="1.1"
@@ -49,11 +41,19 @@
           </svg>
         </button>
       </div>
+
+     
     </div>
  
   
   <style>
-   
+   a{
+    text-decoration: none;
+    color: black;
+   }
+
+.border-black { border-color: black;}
+
     svg {
       width: 2rem;
       height: 2rem;

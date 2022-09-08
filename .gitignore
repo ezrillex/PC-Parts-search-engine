@@ -1,2 +1,6 @@
-
+backend/node_modules/
 backend/data.txt
+data-scraper/datamine_backup_kpc.txt
+data-scraper/datamine_backup_zd.txt
+data-scraper/datamine_backup.txt
+*.log

@@ -56,17 +56,20 @@ app.use(cors()) // enables cors on all origins DEV
 // todo batch requests? failing individual requests are better?
 app.post('/update', (req, res) => {
 
-    let store, name, category, url, price, pricecash, pricediscount
+    let store, name, category, url, price, pricefloat, pricecash, pricecashfloat, pricediscount, pricediscountfloat
     console.log(req.body)
 
     try {
         store = req.body.store.toUpperCase()
         name = req.body.name.toUpperCase()
-        category = req.body.category.toUpperCase() // to do implement defined categories
+        // category = req.body.category.toUpperCase() // to do implement defined categories
         url = req.body.url // validate this? since I am the one sending this how secure all this endpooints have to be? other than the search one.
         price = req.body.price
+        pricefloat = req.body.pricefloat
         pricecash = req.body.pricecash
+        pricecashfloat = req.body.pricecashfloat
         pricediscount = req.body.pricediscount
+        pricediscountfloat = req.body.pricediscountfloat
     } catch (error) {
         console.log(error)
         res.status(500).send({ "error": "Parsing parameter error" });
@@ -76,11 +79,14 @@ app.post('/update', (req, res) => {
     data.push({
         "store": store,
         "name": name,
-        "category": category,
+        // "category": category,
         "url": url,
-        "price": price,
-        "pricecash": pricecash,
-        "pricediscount":pricediscount
+        "price": price || "",
+        "pricefloat": pricefloat || 0 ,
+        "pricecash": pricecash || "",
+        "pricecashfloat": pricecashfloat || 0,
+        "pricediscount":pricediscount || "",
+        "pricediscountfloat":pricediscountfloat || 0
     })
 
     res.sendStatus(200)
@@ -94,7 +100,7 @@ app.get('/clear_cache', (req, res) => {
 
 app.get('/search', (req, res) => {
 
-    console.log(req.query)
+    //console.log(req.query)
 
     let query = undefined;
     try {
@@ -107,12 +113,12 @@ app.get('/search', (req, res) => {
 
     // check cache OK SO in dev this wont work because if I update this afterwards the cache is no longer valid. In prod yes because only once a day it's upated so delete cache after daily update.
     let found = cache.find(element => element.query === query)
-    console.log("CACHE QUERY = ", found)
+    //console.log("CACHE QUERY = ", found)
 
     // hard query
     if (found === undefined) {
         found = data.filter(element => element.name.includes(query))
-        console.log("HARD QUERY = ", found)
+        //console.log("HARD QUERY = ", found)
         if (found !== []) {
             // save results on cache
             cache.push({
