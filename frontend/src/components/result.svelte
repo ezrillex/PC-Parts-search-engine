@@ -6,7 +6,7 @@
   export let pricecash;
   export let pricediscount;
 
-  export let category; // to be changed for keyword
+  //export let category; // to be changed for keyword
 </script>
 
 <div class="card mb-3 w-100 ">

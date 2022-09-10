@@ -8,7 +8,7 @@
 
   async function search() {
     let start_time = performance.now();
-    let result = await fetch("http://localhost:8000/search?q=" + params.query);
+    let result = await fetch("https://beta.abarca.dev/api/beta/search?q=" + params.query);
     let finish_time = performance.now();
     time = finish_time - start_time;
     return await result.json();

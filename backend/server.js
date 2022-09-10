@@ -2,9 +2,10 @@
 const bodyParser = require('body-parser')
 const fs = require('fs')
 const express = require('express');
-const cron = require('node-cron');
+// const cron = require('node-cron');
 const cors = require('cors')
 const app = express();
+
 
 const PORT = process.env.PORT || 8000;
 
@@ -33,7 +34,7 @@ app.use(cors()) // enables cors on all origins DEV
 //#region endpoints
 
 // todo batch requests? failing individual requests are better?
-app.post('/update', (req, res) => {
+app.post('/api/beta/update', (req, res) => {
 
     let store, name, category, url, price, pricefloat, pricecash, pricecashfloat, pricediscount, pricediscountfloat
     //console.log(req.body)
@@ -72,14 +73,14 @@ app.post('/update', (req, res) => {
 });
 
 // Clears cache and saves data to disk
-app.get('/clear_cache', (req, res) => {
+app.get('/api/beta/clear_cache', (req, res) => {
     cache = []
     fs.writeFileSync('data.txt', JSON.stringify(data))
     console.log("Cache Cleared - Data Saved")
     res.sendStatus(200)
 })
 
-app.get('/search', (req, res) => {
+app.get('/api/beta/search', (req, res) => {
 
     //console.log(req.query)
     let query
