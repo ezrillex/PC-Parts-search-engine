@@ -485,3 +485,86 @@ Read port: 56513
 console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\ezril\\AppData\\Local\\Temp\\rust_mozprofilemyr9lx\\search.json.mozlz4", (void 0)))
 DevTools listening on ws://localhost:56504/devtools/browser/a138ded1-4cd6-4528-b719-7b59c9260f33
 1662615211199	Marionette	INFO	Stopped listening on port 56513
+1662647010007	geckodriver	INFO	Listening on 127.0.0.1:52073
+1662647013059	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "52074" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\ezril\\AppData\\Local\\Temp\\rust_mozprofilenKayEK"
+1662647013374	Marionette	INFO	Marionette enabled
+1662647013380	Marionette	INFO	Listening on port 52084
+WebDriver BiDi listening on ws://localhost:52074
+Read port: 52084
+1662647013524	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\ezril\\AppData\\Local\\Temp\\rust_mozprofilenKayEK\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:52074/devtools/browser/3d2623cb-591f-4012-ae1e-e44c755b2637
+1662647026556	Marionette	INFO	Stopped listening on port 52084
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1662647060546	geckodriver	INFO	Listening on 127.0.0.1:52136
+1662647063552	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "52137" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\ezril\\AppData\\Local\\Temp\\rust_mozprofileVcfdyt"
+1662647063831	Marionette	INFO	Marionette enabled
+1662647063835	Marionette	INFO	Listening on port 52147
+WebDriver BiDi listening on ws://localhost:52137
+Read port: 52147
+1662647063964	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\ezril\\AppData\\Local\\Temp\\rust_mozprofileVcfdyt\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:52137/devtools/browser/66b0521c-cb8c-46f0-8945-58437dc4f1ae
+1662647070926	Marionette	INFO	Stopped listening on port 52147
+1662647187846	geckodriver	INFO	Listening on 127.0.0.1:52202
+1662647190877	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "52203" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\ezril\\AppData\\Local\\Temp\\rust_mozprofilestEnF3"
+1662647191158	Marionette	INFO	Marionette enabled
+1662647191162	Marionette	INFO	Listening on port 52213
+WebDriver BiDi listening on ws://localhost:52203
+Read port: 52213
+1662647191286	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\ezril\\AppData\\Local\\Temp\\rust_mozprofilestEnF3\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:52203/devtools/browser/60acbc7c-da9f-45d0-8ff2-772848c657b8
+1662647199041	Marionette	INFO	Stopped listening on port 52213
+1662647327834	geckodriver	INFO	Listening on 127.0.0.1:52281
+1662647330853	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "52282" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\ezril\\AppData\\Local\\Temp\\rust_mozprofilelUKhPg"
+1662647331133	Marionette	INFO	Marionette enabled
+1662647331137	Marionette	INFO	Listening on port 52291
+WebDriver BiDi listening on ws://localhost:52282
+Read port: 52291
+1662647331260	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\ezril\\AppData\\Local\\Temp\\rust_mozprofilelUKhPg\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:52282/devtools/browser/2b6bde30-6619-4770-b45a-b3f3fd99ad95
+1662647337176	Marionette	INFO	Stopped listening on port 52291
+1662647371018	geckodriver	INFO	Listening on 127.0.0.1:52342
+1662647374067	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "52343" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\ezril\\AppData\\Local\\Temp\\rust_mozprofilekyF4ow"
+1662647374347	Marionette	INFO	Marionette enabled
+1662647374351	Marionette	INFO	Listening on port 52352
+WebDriver BiDi listening on ws://localhost:52343
+Read port: 52352
+1662647374473	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\ezril\\AppData\\Local\\Temp\\rust_mozprofilekyF4ow\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:52343/devtools/browser/d360a1ca-00b0-421b-8b71-6f5bb0ec8ab0
+1662647380487	Marionette	INFO	Stopped listening on port 52352
+1662647477489	geckodriver	INFO	Listening on 127.0.0.1:52425
+1662647480545	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "52426" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\ezril\\AppData\\Local\\Temp\\rust_mozprofileUeDbHV"
+1662647480830	Marionette	INFO	Marionette enabled
+1662647480834	Marionette	INFO	Listening on port 52435
+WebDriver BiDi listening on ws://localhost:52426
+Read port: 52435
+1662647480965	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\ezril\\AppData\\Local\\Temp\\rust_mozprofileUeDbHV\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:52426/devtools/browser/8bda1f45-ac32-4503-bb03-b9e2a6360c56
+1662647486984	Marionette	INFO	Stopped listening on port 52435
+1662647600469	geckodriver	INFO	Listening on 127.0.0.1:52501
+1662647603508	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "52502" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\ezril\\AppData\\Local\\Temp\\rust_mozprofilea9i4Hl"
+1662647603787	Marionette	INFO	Marionette enabled
+1662647603791	Marionette	INFO	Listening on port 52511
+WebDriver BiDi listening on ws://localhost:52502
+Read port: 52511
+1662647603916	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\ezril\\AppData\\Local\\Temp\\rust_mozprofilea9i4Hl\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:52502/devtools/browser/749c2926-a458-45b3-b9ec-438cf2a34e04
+JavaScript error: https://www.zonadigitalsv.com/themes/mstore/js/vendor.min.js?id=6bc07ac15a5109f2d9160f1b7472b883, line 1: Error: noUiSlider (12.1.0): 'range' 'min' and 'max' cannot be equal.
+JavaScript error: https://www.zonadigitalsv.com/themes/mstore/js/vendor.min.js?id=6bc07ac15a5109f2d9160f1b7472b883, line 1: Error: noUiSlider (12.1.0): 'range' 'min' and 'max' cannot be equal.
+JavaScript error: https://www.zonadigitalsv.com/product/family/calculadoras-cient%C3%ADficas?page=1, line 2533: SyntaxError: '' string literal contains an unescaped line break
+JavaScript error: https://www.zonadigitalsv.com/product/family/calculadoras-cient%C3%ADficas?page=2, line 1985: SyntaxError: '' string literal contains an unescaped line break
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: https://www.zonadigitalsv.com/themes/mstore/js/vendor.min.js?id=6bc07ac15a5109f2d9160f1b7472b883, line 1: Error: noUiSlider (12.1.0): 'range' 'min' and 'max' cannot be equal.
+JavaScript error: https://www.zonadigitalsv.com/themes/mstore/js/vendor.min.js?id=6bc07ac15a5109f2d9160f1b7472b883, line 1: Error: noUiSlider (12.1.0): 'range' 'min' and 'max' cannot be equal.
+JavaScript error: https://www.zonadigitalsv.com/themes/mstore/js/vendor.min.js?id=6bc07ac15a5109f2d9160f1b7472b883, line 1: Error: noUiSlider (12.1.0): 'range' 'min' and 'max' cannot be equal.
+JavaScript error: https://www.zonadigitalsv.com/themes/mstore/js/vendor.min.js?id=6bc07ac15a5109f2d9160f1b7472b883, line 1: Error: noUiSlider (12.1.0): 'range' 'min' and 'max' cannot be equal.
+JavaScript error: https://www.zonadigitalsv.com/themes/mstore/js/vendor.min.js?id=6bc07ac15a5109f2d9160f1b7472b883, line 1: Error: noUiSlider (12.1.0): 'range' 'min' and 'max' cannot be equal.
+JavaScript error: https://www.zonadigitalsv.com/themes/mstore/js/vendor.min.js?id=6bc07ac15a5109f2d9160f1b7472b883, line 1: Error: noUiSlider (12.1.0): 'range' 'min' and 'max' cannot be equal.
+JavaScript error: https://www.zonadigitalsv.com/themes/mstore/js/vendor.min.js?id=6bc07ac15a5109f2d9160f1b7472b883, line 1: Error: noUiSlider (12.1.0): 'range' 'min' and 'max' cannot be equal.
+1662648815668	Marionette	INFO	Stopped listening on port 52511

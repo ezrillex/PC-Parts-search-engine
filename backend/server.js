@@ -10,39 +10,18 @@ const PORT = process.env.PORT || 8000;
 
 var data = []
 var cache = []
-/*
-var data = [
-    { "store": "E-Shop", "name": "CPU RYZON 69420K", "category": "PROCESADORES", "url": "https://www.youtube.com/", "price": "$123.45", "price-cash": "$543.21", "pricediscount": "$199.99" },
-    { "store": "E-Shop", "name": "CPU RYZON 69420K", "category": "PROCESADORES", "url": "https://www.youtube.com/", "price": "$123.45", "price-cash": "$543.21", "pricediscount": "$199.99" },
-    { "store": "E-Shop", "name": "CPU RYZON 69420K", "category": "PROCESADORES", "url": "https://www.youtube.com/", "price": "$123.45", "price-cash": "$543.21", "pricediscount": "$199.99" },
-    { "store": "E-Shop", "name": "CPU INTOL 12345K 3.21MHZ", "category": "PROCESADORES", "url": "https://www.youtube.com/", "price": "$123.45", "price-cash": "$543.21", "pricediscount": "$199.99" },
-    { "store": "E-Shop", "name": "CPU INTOL 12345K 3.21MHZ", "category": "PROCESADORES", "url": "https://www.youtube.com/", "price": "$123.45", "price-cash": "$543.21", "pricediscount": "$199.99" },
-    { "store": "E-Shop", "name": "CPU INTOL 12345K 3.21MHZ", "category": "PROCESADORES", "url": "https://www.youtube.com/", "price": "$123.45", "price-cash": "$543.21", "pricediscount": "$199.99" }
-]
-
-var cache = [
-    {
-        "query": "RYZON", "results": [
-            { "store": "E-Shop", "name": "CPU RYZON 69420K", "category": "PROCESADORES", "url": "https://www.youtube.com/", "price": 123.45, "price-cash": "$543.21", "pricediscount": "$199.99" },
-            { "store": "E-Shop", "name": "CPU RYZON 69420K", "category": "PROCESADORES", "url": "https://www.youtube.com/", "price": 123.45, "price-cash": "$543.21", "pricediscount": "$199.99" },
-            { "store": "E-Shop", "name": "CPU RYZON 69420K", "category": "PROCESADORES", "url": "https://www.youtube.com/", "price": 123.45, "price-cash": "$543.21", "pricediscount": "$199.99" }
-        ]
-
-    }
-]
-*/
 
 try {
     data = JSON.parse(fs.readFileSync('data.txt', 'utf8'))
 } catch (err) {
-    console.log("Error when loading comments from text:")
+    console.log("Error when loading data")
     console.error(err)
 }
 
-cron.schedule('*/1 * * * *', (date) => {
-    console.log("Backing up data - " + date)
-    fs.writeFileSync('data.txt', JSON.stringify(data))
-});
+// cron.schedule('*/1 * * * *', (date) => {
+//     console.log("Backing up data - " + date)
+//     fs.writeFileSync('data.txt', JSON.stringify(data))
+// });
 
 
 
@@ -57,11 +36,11 @@ app.use(cors()) // enables cors on all origins DEV
 app.post('/update', (req, res) => {
 
     let store, name, category, url, price, pricefloat, pricecash, pricecashfloat, pricediscount, pricediscountfloat
-    console.log(req.body)
+    //console.log(req.body)
 
     try {
         store = req.body.store.toUpperCase()
-        name = req.body.name.toUpperCase()
+        name = req.body.name || "ERROR"
         // category = req.body.category.toUpperCase() // to do implement defined categories
         url = req.body.url // validate this? since I am the one sending this how secure all this endpooints have to be? other than the search one.
         price = req.body.price
@@ -78,7 +57,7 @@ app.post('/update', (req, res) => {
 
     data.push({
         "store": store,
-        "name": name,
+        "name": name.toUpperCase(),
         // "category": category,
         "url": url,
         "price": price || "",
@@ -92,46 +71,32 @@ app.post('/update', (req, res) => {
     res.sendStatus(200)
 });
 
+// Clears cache and saves data to disk
 app.get('/clear_cache', (req, res) => {
     cache = []
-    console.log("Cache Cleared")
+    fs.writeFileSync('data.txt', JSON.stringify(data))
+    console.log("Cache Cleared - Data Saved")
     res.sendStatus(200)
 })
 
 app.get('/search', (req, res) => {
 
     //console.log(req.query)
-
-    let query = undefined;
+    let query
     try {
-        query = req.query.q;
-        query = query.toUpperCase();
+        query = req.query.q.toUpperCase();
     } catch (error) {
         console.log(error)
-        res.sendStatus(404);
+        res.sendStatus(400);
     }
 
-    // check cache OK SO in dev this wont work because if I update this afterwards the cache is no longer valid. In prod yes because only once a day it's upated so delete cache after daily update.
-    let found = cache.find(element => element.query === query)
-    //console.log("CACHE QUERY = ", found)
-
-    // hard query
-    if (found === undefined) {
+    // STALE if data update
+    let found = cache[query]
+    if(found === undefined){
         found = data.filter(element => element.name.includes(query))
         //console.log("HARD QUERY = ", found)
-        if (found !== []) {
-            // save results on cache
-            cache.push({
-                "query": query,
-                "results": found
-            })
-        }
-    }else {
-        found = found.results
-    }
-
-    if (found === undefined) {
-        res.status(404).send();
+        // save results on cache
+        cache.push({query: found})
     }
 
     res.status(200).send(found);
@@ -142,17 +107,16 @@ app.get('/search', (req, res) => {
 
 //#endregion
 
-function isValidHttpUrl(string) {
-    // stackoverflow.com/questions/5717093/check-if-a-javascript-string-is-a-url
-    let url;
+// function isValidHttpUrl(string) {
+//     // stackoverflow.com/questions/5717093/check-if-a-javascript-string-is-a-url
+//     let url;
 
-    try {
-        url = new URL(string);
-    } catch (_) {
-        return false;
-    }
-    return url.protocol === "http:" || url.protocol === "https:";
-}
-
+//     try {
+//         url = new URL(string);
+//     } catch (_) {
+//         return false;
+//     }
+//     return url.protocol === "http:" || url.protocol === "https:";
+// }
 
 app.listen(PORT, () => console.log(`Server is running on PORT ${PORT}`)); 

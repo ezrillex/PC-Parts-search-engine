@@ -1,4 +1,3 @@
-from ast import While
 import json
 from selenium import webdriver
 import requests
@@ -50,10 +49,9 @@ driver.implicitly_wait(5) # wait for it to be ready
 #         })
 
 # -------------------------------------------------------------------- STORE 2
-# with open("sources/zd.txt") as file:
-#     store_data = file.readlines()
+with open("sources/zd.txt") as file:
+    store_data = file.readlines()
 
-store_data = ["https://www.zonadigitalsv.com/product/family/unidades-ssd-sata"]
 
 def getProducts(link):
     global page
@@ -66,10 +64,10 @@ def getProducts(link):
 for link in store_data:
     page = 0
     products = []
-    products = driver.find_elements(By.CSS_SELECTOR, ".product-card") # for intellisense
+    # products = driver.find_elements(By.CSS_SELECTOR, ".product-card") # for intellisense
     
-
-    while getProducts(link)  > 0:
+    # TODO OPTIMIZATION: GET PAGE NUMBER FROM FOOTER and do a simple for loop, this is crazy one extra get just to know this information
+    while getProducts(link)  > 0: 
         for product in products:
             title = product.find_element(
                 By.CSS_SELECTOR, ".product-card-title").find_element(By.TAG_NAME, "a")
@@ -105,10 +103,3 @@ driver.quit()
 with open('datamine_backup.txt', 'w', encoding='utf-8') as file:
     json.dump(datamine, file, ensure_ascii=False, indent=4)
 
-# endpoint = "http://localhost:8000/update"
-
-# del data
-# for data in datamine:
-    # response = requests.post(endpoint, json=data)
-    # print(f"{response.status_code} {response.text}")
-    # print(data)
